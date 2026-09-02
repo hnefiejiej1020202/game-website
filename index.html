@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hub - Play Amazing Games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Game Hub</h1>
+            <p>Play your favorite games online</p>
+        </header>
+
+        <nav class="game-selector">
+            <button class="nav-btn active" data-game="home">Home</button>
+            <button class="nav-btn" data-game="snake">Snake</button>
+            <button class="nav-btn" data-game="flappy">Flappy Bird</button>
+            <button class="nav-btn" data-game="memory">Memory Game</button>
+            <button class="nav-btn" data-game="pong">Pong</button>
+        </nav>
+
+        <!-- Home Screen -->
+        <section id="home" class="game-section active">
+            <div class="home-content">
+                <h2>Welcome to Game Hub!</h2>
+                <p>Select a game from the menu above to get started.</p>
+                <div class="game-grid">
+                    <div class="game-card" onclick="switchGame('snake')">
+                        <h3>🐍 Snake</h3>
+                        <p>Classic snake game - eat food and grow!</p>
+                    </div>
+                    <div class="game-card" onclick="switchGame('flappy')">
+                        <h3>🐦 Flappy Bird</h3>
+                        <p>Tap to fly through the pipes</p>
+                    </div>
+                    <div class="game-card" onclick="switchGame('memory')">
+                        <h3>🧠 Memory Game</h3>
+                        <p>Match pairs and test your memory</p>
+                    </div>
+                    <div class="game-card" onclick="switchGame('pong')">
+                        <h3>🎾 Pong</h3>
+                        <p>Classic paddle and ball game</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Snake Game -->
+        <section id="snake" class="game-section">
+            <div class="game-container">
+                <div class="game-info">
+                    <h2>🐍 Snake Game</h2>
+                    <p>Score: <span id="snake-score">0</span></p>
+                    <p id="snake-instructions">Use Arrow Keys to move. Press SPACE to start.</p>
+                </div>
+                <canvas id="snake-canvas" width="400" height="400"></canvas>
+            </div>
+        </section>
+
+        <!-- Flappy Bird Game -->
+        <section id="flappy" class="game-section">
+            <div class="game-container">
+                <div class="game-info">
+                    <h2>🐦 Flappy Bird</h2>
+                    <p>Score: <span id="flappy-score">0</span></p>
+                    <p id="flappy-instructions">Click or press SPACE to fly. Avoid the pipes!</p>
+                </div>
+                <canvas id="flappy-canvas" width="400" height="600"></canvas>
+            </div>
+        </section>
+
+        <!-- Memory Game -->
+        <section id="memory" class="game-section">
+            <div class="game-container">
+                <div class="game-info">
+                    <h2>🧠 Memory Game</h2>
+                    <p>Matches: <span id="memory-score">0</span>/8</p>
+                    <p id="memory-instructions">Click cards to find matching pairs</p>
+                    <button id="memory-reset" onclick="resetMemoryGame()">New Game</button>
+                </div>
+                <div id="memory-grid" class="memory-grid"></div>
+            </div>
+        </section>
+
+        <!-- Pong Game -->
+        <section id="pong" class="game-section">
+            <div class="game-container">
+                <div class="game-info">
+                    <h2>🎾 Pong</h2>
+                    <p>Player: <span id="pong-player-score">0</span> | AI: <span id="pong-ai-score">0</span></p>
+                    <p id="pong-instructions">Use UP/DOWN arrows to move your paddle. First to 5 wins!</p>
+                </div>
+                <canvas id="pong-canvas" width="600" height="400"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <script src="games/snake.js"></script>
+    <script src="games/flappy.js"></script>
+    <script src="games/memory.js"></script>
+    <script src="games/pong.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
